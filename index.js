@@ -1,8 +1,5 @@
-let crypto
+const { Certificate } = require('crypto')
 
-try{
-   crypto = require('crypto')
-} catch(err) {
-  console.log('crypto support is disabled!')
-}
-console.log('Move on, your crypto is available. Do what ever you want to do!')
+const spkac = getSpkacSomehow()
+const challenge = Certificate.exportChallenge(spkac)
+console.log(challenge.toString('utf-8'))
