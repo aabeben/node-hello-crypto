@@ -1,8 +1,8 @@
-const crypto = require('crypto')
+let crypto
 
-const secret = 'abcdefg'
-
-const hash = crypto.createHmac('sha256', secret)
-.update('I love cupcakes')
-.digest('hex')
-console.log(hash)
+try{
+   crypto = require('crypto')
+} catch(err) {
+  console.log('crypto support is disabled!')
+}
+console.log('Move on, your crypto is available. Do what ever you want to do!')
